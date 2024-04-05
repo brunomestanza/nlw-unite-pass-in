@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: passin-deployment
+  labels:
+    app: passin
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: passin
+  template:
+    metadata:
+      labels:
+        app: passin
+    spec:
+      containers:
+        - name: passin
+          image: nginx:1.25.4-alpine3.18-slim
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            limits:
+              cpu: 400m
+              memory: 512Mi

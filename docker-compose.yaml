@@ -8,9 +8,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=passin
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - 'db:/var/lib/postgresql/data'
     networks:
@@ -26,7 +26,7 @@ services:
     environment:
       # We pass @postgres because it refers to the postgres service above
       # It works because the containers are both in the same network
-      - DATABASE_URL=postgresql://admin:admin@postgres:5432/passin
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_USER}@postgres:5432/${POSTGRES_DB}
       - API_BASE_URL=http://localhost:3333
     # The depends on only verifies if the container is up, but not if its working as expected
     # it dont verify the health of the container
