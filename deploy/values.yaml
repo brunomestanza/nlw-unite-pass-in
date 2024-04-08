@@ -29,8 +29,6 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls: []
-<<<<<<< Updated upstream
-=======
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
@@ -57,7 +55,6 @@ startupProbe:
   failureThreshold: 5
   periodSeconds: 10
 
->>>>>>> Stashed changes
 resources:
   requests:
     cpu: 200m
@@ -65,10 +62,6 @@ resources:
   limits:
     cpu: 400m
     memory: 512Mi
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 autoscaling:
   enabled: true
   minReplicas: 5
