@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: brunomestanza/nlw.service.passin
   pullPolicy: Always
-  tag: 14d92a6
+  tag: 886dad3
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
@@ -29,10 +29,6 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
 livenessProbe:
   httpGet:
     path: /health
@@ -54,7 +50,6 @@ startupProbe:
   initialDelaySeconds: 40
   failureThreshold: 5
   periodSeconds: 10
-
 resources:
   requests:
     cpu: 200m
